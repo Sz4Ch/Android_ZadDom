@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Ostatnia_wersja</string>
+    <string name="task_name">Imie</string>
+    <string name="task_surname">Nazwisko</string>
+    <string name="task_date">Urodziny</string>
+    <string name="task_number">Numer</string>
+    <string name="add">Add</string>
+    <string name="default_name">D_imie</string>
+    <string name="default_surname">D_nazwisko</string>
+    <string name="default_date">D_urodziny</string>
+    <string name="default_number">D_numer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment2">hello_blank_fragment2</string>
+    <string name="item_selected_msg">Wybrano kontakt</string>
+    <string name="delete_question">Usunąć kontakt?</string>
+    <string name="dialog_confirm">Tak</string>
+    <string name="dialog_cancel">Nie</string>
+    <string name="delete_dialog_question_tag">Czy usunąć kontakt?</string>
+    <string name="delete_click_msg">Usunac kontakt?</string>
+    <string name="retry_msg">Spróbuj ponownie</string>
+    <string name="delete_cancel_msg">Anuluj</string>
+    <string name="call_question">Dzwonić?</string>
+    <string name="call_dialog_tag">Dzwonić</string>
+    <string name="long_click_msg">Dzownić?</string>
+</resources>
