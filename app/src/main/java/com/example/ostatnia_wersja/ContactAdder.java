@@ -12,7 +12,10 @@ import android.widget.EditText;
 
 import com.example.ostatnia_wersja.tasks.TaskListContent;
 
-public class ContactAdder extends AppCompatActivity implements TaskFragment.OnListFragmentInteractionListener{
+import java.util.Random;
+
+public class ContactAdder extends AppCompatActivity
+{
 
 
 
@@ -26,7 +29,7 @@ public class ContactAdder extends AppCompatActivity implements TaskFragment.OnLi
         EditText taskNameEdit = findViewById(R.id.taskName);
         EditText taskSurnameEdit = findViewById(R.id.taskSurname);
         EditText taskDateEdit = findViewById(R.id.taskDate);
-        EditText taskNumberEdit = findViewById(R.id.taskDate);
+        EditText taskNumberEdit = findViewById(R.id.taskNumber);
 
         String taskName = taskNameEdit.getText().toString();
         String taskSurname = taskSurnameEdit.getText().toString();
@@ -35,11 +38,16 @@ public class ContactAdder extends AppCompatActivity implements TaskFragment.OnLi
 
 
 
+        Random rand = new Random();
+        int random_number = rand.nextInt(6);
+
+
         if(taskName.isEmpty() && taskSurname.isEmpty() && taskDate.isEmpty() && taskNumber.isEmpty()) {
             TaskListContent.addItem(new TaskListContent.Task("Task." + TaskListContent.ITEMS.size()+1,
                     getString(R.string.default_name),
                     getString(R.string.default_surname),
                     getString(R.string.default_date),
+                    getString(R.string.default_image),
                     getString(R.string.default_number)));
         }else{
             if(taskName.isEmpty())
@@ -50,52 +58,182 @@ public class ContactAdder extends AppCompatActivity implements TaskFragment.OnLi
                 taskDate = getString(R.string.default_date);
             if(taskNumber.isEmpty())
                 taskNumber = getString(R.string.default_number);
-            TaskListContent.addItem(new TaskListContent.Task("Task." + TaskListContent.ITEMS.size() + 1,
-                    taskName,
-                    taskSurname,
-                    taskDate,
-                    taskNumber));
-        }
-        ((TaskFragment) getSupportFragmentManager().findFragmentById(R.id.taskFragment)).notifyDataChange();
-        Button buttonAdd = findViewById(R.id.addButton);
-        final String finalTaskName = taskName;
-        final String finalTaskSurname = taskSurname;
-        final String finalTaskDate = taskDate;
-        final String finalTaskNumber = taskNumber;
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ContactAdder.this, MainActivity.class);
-                intent.putExtra("Imie", finalTaskName);
-                intent.putExtra("Nazwisko", finalTaskSurname);
-                intent.putExtra("Urodziny", finalTaskDate);
-                intent.putExtra("Numer", finalTaskNumber);
-                setResult(RESULT_OK, intent);
-                finish();
+            if(random_number == 1){
+                final String random_pic = Integer.toString(random_number);
+                TaskListContent.addItem(new TaskListContent.Task("Task." + TaskListContent.ITEMS.size() + 1,
+                        taskName,
+                        taskSurname,
+                        taskDate,
+                        random_pic,
+                        taskNumber));
 
+                Button buttonAdd = findViewById(R.id.addButton);
+                final String finalTaskName = taskName;
+                final String finalTaskSurname = taskSurname;
+                final String finalTaskDate = taskDate;
+                final String finalTaskNumber = taskNumber;
+                buttonAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ContactAdder.this, MainActivity.class);
+                        intent.putExtra("Imie", finalTaskName);
+                        intent.putExtra("Nazwisko", finalTaskSurname);
+                        intent.putExtra("Urodziny", finalTaskDate);
+                        intent.putExtra("Zdjęcie", random_pic);
+                        intent.putExtra("Numer", finalTaskNumber);
+                        setResult(RESULT_OK, intent);
+                        finish();
+
+                    }
+                });
+            }else if(random_number == 2){
+                final String random_pic = Integer.toString(random_number);
+                TaskListContent.addItem(new TaskListContent.Task("Task." + TaskListContent.ITEMS.size() + 1,
+                        taskName,
+                        taskSurname,
+                        taskDate,
+                        random_pic,
+                        taskNumber));
+
+                Button buttonAdd = findViewById(R.id.addButton);
+                final String finalTaskName = taskName;
+                final String finalTaskSurname = taskSurname;
+                final String finalTaskDate = taskDate;
+                final String finalTaskNumber = taskNumber;
+                buttonAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ContactAdder.this, MainActivity.class);
+                        intent.putExtra("Imie", finalTaskName);
+                        intent.putExtra("Nazwisko", finalTaskSurname);
+                        intent.putExtra("Urodziny", finalTaskDate);
+                        intent.putExtra("Zdjęcie", random_pic);
+                        intent.putExtra("Numer", finalTaskNumber);
+                        setResult(RESULT_OK, intent);
+                        finish();
+
+                    }
+                });
+            }else if(random_number == 3){
+                final String random_pic = Integer.toString(random_number);
+                TaskListContent.addItem(new TaskListContent.Task("Task." + TaskListContent.ITEMS.size() + 1,
+                        taskName,
+                        taskSurname,
+                        taskDate,
+                        random_pic,
+                        taskNumber));
+
+                Button buttonAdd = findViewById(R.id.addButton);
+                final String finalTaskName = taskName;
+                final String finalTaskSurname = taskSurname;
+                final String finalTaskDate = taskDate;
+                final String finalTaskNumber = taskNumber;
+                buttonAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ContactAdder.this, MainActivity.class);
+                        intent.putExtra("Imie", finalTaskName);
+                        intent.putExtra("Nazwisko", finalTaskSurname);
+                        intent.putExtra("Urodziny", finalTaskDate);
+                        intent.putExtra("Zdjęcie", random_pic);
+                        intent.putExtra("Numer", finalTaskNumber);
+                        setResult(RESULT_OK, intent);
+                        finish();
+
+                    }
+                });
+            }else if(random_number == 4){
+                final String random_pic = Integer.toString(random_number);
+                TaskListContent.addItem(new TaskListContent.Task("Task." + TaskListContent.ITEMS.size() + 1,
+                        taskName,
+                        taskSurname,
+                        taskDate,
+                        random_pic,
+                        taskNumber));
+
+                Button buttonAdd = findViewById(R.id.addButton);
+                final String finalTaskName = taskName;
+                final String finalTaskSurname = taskSurname;
+                final String finalTaskDate = taskDate;
+                final String finalTaskNumber = taskNumber;
+                buttonAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ContactAdder.this, MainActivity.class);
+                        intent.putExtra("Imie", finalTaskName);
+                        intent.putExtra("Nazwisko", finalTaskSurname);
+                        intent.putExtra("Urodziny", finalTaskDate);
+                        intent.putExtra("Zdjęcie", random_pic);
+                        intent.putExtra("Numer", finalTaskNumber);
+                        setResult(RESULT_OK, intent);
+                        finish();
+
+                    }
+                });
+            }else if(random_number == 5){
+                final String random_pic = Integer.toString(random_number);
+                TaskListContent.addItem(new TaskListContent.Task("Task." + TaskListContent.ITEMS.size() + 1,
+                        taskName,
+                        taskSurname,
+                        taskDate,
+                        random_pic,
+                        taskNumber));
+
+                Button buttonAdd = findViewById(R.id.addButton);
+                final String finalTaskName = taskName;
+                final String finalTaskSurname = taskSurname;
+                final String finalTaskDate = taskDate;
+                final String finalTaskNumber = taskNumber;
+                buttonAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ContactAdder.this, MainActivity.class);
+                        intent.putExtra("Imie", finalTaskName);
+                        intent.putExtra("Nazwisko", finalTaskSurname);
+                        intent.putExtra("Urodziny", finalTaskDate);
+                        intent.putExtra("Zdjęcie", random_pic);
+                        intent.putExtra("Numer", finalTaskNumber);
+                        setResult(RESULT_OK, intent);
+                        finish();
+
+                    }
+                });
+            }else if(random_number == 6){
+                final String random_pic = Integer.toString(random_number);
+                TaskListContent.addItem(new TaskListContent.Task("Task." + TaskListContent.ITEMS.size() + 1,
+                        taskName,
+                        taskSurname,
+                        taskDate,
+                        random_pic,
+                        taskNumber));
+
+                Button buttonAdd = findViewById(R.id.addButton);
+                final String finalTaskName = taskName;
+                final String finalTaskSurname = taskSurname;
+                final String finalTaskDate = taskDate;
+                final String finalTaskNumber = taskNumber;
+                buttonAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ContactAdder.this, MainActivity.class);
+                        intent.putExtra("Imie", finalTaskName);
+                        intent.putExtra("Nazwisko", finalTaskSurname);
+                        intent.putExtra("Urodziny", finalTaskDate);
+                        intent.putExtra("Zdjęcie", random_pic);
+                        intent.putExtra("Numer", finalTaskNumber);
+                        setResult(RESULT_OK, intent);
+                        finish();
+
+                    }
+                });
             }
-        });
+
+
+        }
         taskNameEdit.setText("");
         taskSurnameEdit.setText("");
         taskDateEdit.setText("");
         taskNumberEdit.setText("");
-
-        //InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        //imm.hideSoftInputFromWindow(view.getWindowToken(),0);
     }
 
-    @Override
-    public void onListFragmentClickInteraction(TaskListContent.Task task, int position) {
-
-    }
-
-    @Override
-    public void onListFragmentLongClickInteraction(int position) {
-
-    }
-
-    @Override
-    public void onListFragmentDeleteInteraction(int position) {
-
-    }
 }

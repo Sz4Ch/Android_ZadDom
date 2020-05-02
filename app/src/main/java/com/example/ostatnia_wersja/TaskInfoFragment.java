@@ -21,22 +21,16 @@ import com.example.ostatnia_wersja.tasks.TaskListContent;
 
 import java.util.Random;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TaskInfoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class TaskInfoFragment extends Fragment {
 
     public TaskInfoFragment() {
-        // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_task_info, container, false);
     }
     public void displayTask(TaskListContent.Task task) {
@@ -53,28 +47,37 @@ public class TaskInfoFragment extends Fragment {
         taskInfoDate.setText(task.date);
         taskInfoNumber.setText(task.number);
 
-        Drawable taskDrawable;
-        int[] images = {
-                R.drawable.avatar_1,
-                R.drawable.avatar_2,
-                R.drawable.avatar_3,
-                R.drawable.avatar_4,
-                R.drawable.avatar_5,
-                R.drawable.avatar_6,
-                R.drawable.avatar_7,
-                R.drawable.avatar_8,
-                R.drawable.avatar_9,
-                R.drawable.avatar_10,
-                R.drawable.avatar_11,
-                R.drawable.avatar_12,
-                R.drawable.avatar_13,
-                R.drawable.avatar_14,
-                R.drawable.avatar_15,
-                R.drawable.avatar_16
-        };
-        Random rand = new Random();
-        taskDrawable = activity.getResources().getDrawable(images[rand.nextInt(images.length)]);
-        taskInfoImage.setImageDrawable(taskDrawable);
+
+        if(task.picPath != null && !task.picPath.isEmpty())
+        {
+            Drawable taskDrawable;
+            switch (task.picPath){
+                case "1":
+                    taskDrawable = activity.getResources().getDrawable(R.drawable.avatar_1);
+                    break;
+                case "2":
+                    taskDrawable = activity.getResources().getDrawable(R.drawable.avatar_2);
+                    break;
+                case "3":
+                    taskDrawable = activity.getResources().getDrawable(R.drawable.avatar_3);
+                    break;
+                case "4":
+                    taskDrawable = activity.getResources().getDrawable(R.drawable.avatar_4);
+                    break;
+                case "5":
+                    taskDrawable = activity.getResources().getDrawable(R.drawable.avatar_5);
+                    break;
+                case "6":
+                    taskDrawable = activity.getResources().getDrawable(R.drawable.avatar_6);
+                    break;
+                default:
+                    taskDrawable = activity.getResources().getDrawable(R.drawable.avatar_7);
+            }
+            taskInfoImage.setImageDrawable(taskDrawable);
+        }
+        else {
+            taskInfoImage.setImageDrawable(activity.getResources().getDrawable(R.drawable.avatar_7));
+        }
 
     }
     @Override

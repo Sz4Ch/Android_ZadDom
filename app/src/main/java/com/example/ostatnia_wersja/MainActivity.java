@@ -61,11 +61,13 @@ public class MainActivity extends AppCompatActivity implements
                 String taskImie = intent.getStringExtra("Imie");
                 String taskNazwisko = intent.getStringExtra("Nazwisko");
                 String taskUrodziny = intent.getStringExtra("Urodziny");
+                String taskZdjecie = intent.getStringExtra("Zdjęcie");
                 String taskNumer = intent.getStringExtra("Numer");
                 TaskListContent.addItem(new TaskListContent.Task("Task" + TaskListContent.ITEMS.size() +1,
                         taskImie,
                         taskNazwisko,
                         taskUrodziny,
+                        taskZdjecie,
                         taskNumer));
 
             }
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onListFragmentLongClickInteraction(int position) {
-       // Toast.makeText(this,getString(R.string.long_click_msg) + position, Toast.LENGTH_SHORT).show();
+
         showCallDialog();
     }
 
@@ -98,13 +100,7 @@ public class MainActivity extends AppCompatActivity implements
         Intent intent = new Intent(this, ContactAdder.class);
         startActivityForResult(intent, 1);
     }
-    /*
-    public void openDeleting(){
-        //Toast.makeText(this,getString(R.string.delete_click_msg) + position,Toast.LENGTH_SHORT).show();
-        showDeleteDialog();
-        //currenItemPosition = position;
-    }
-*/
+
     private void startSecondActivity(TaskListContent.Task task, int position) {
         Intent intent = new Intent(this, TaskInfoActivity.class);
         intent.putExtra(taskExtra, task);
@@ -116,8 +112,6 @@ public class MainActivity extends AppCompatActivity implements
             taskInfoFragmet.displayTask(task);
         }
     }
-
-
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {

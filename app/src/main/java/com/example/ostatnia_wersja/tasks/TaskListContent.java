@@ -16,24 +16,12 @@ import java.util.Map;
  */
 public class TaskListContent {
 
-    /**
-     * An array of sample (dummy) items.
-     */
+
     public static final List<Task> ITEMS = new ArrayList<Task>();
 
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
+
     public static final Map<String, Task> ITEM_MAP = new HashMap<String, Task>();
 
-    private static final int COUNT = 6;
-
-    static {
-        // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createTask(i));
-        }
-    }
 
     public static void addItem(Task item) {
         ITEMS.add(item);
@@ -58,14 +46,12 @@ public class TaskListContent {
         ITEM_MAP.remove(itemId);
     }
 
-    /**
-     * A dummy item representing a piece of content.
-     */
     public static class Task implements Parcelable{
         public final String id;
         public final String name;
         public final String surname;
         public final String date;
+        public final String picPath;
         public final String number;
 
         public Task(String id, String name, String surname) {
@@ -73,14 +59,16 @@ public class TaskListContent {
             this.name = name;
             this.surname = surname;
             this.date = "";
+            this.picPath = "";
             this.number = "";
         }
 
-        public Task(String id, String name, String surname, String date, String number) {
+        public Task(String id, String name, String surname, String date, String picPath, String number) {
             this.id = id;
             this.name = name;
             this.surname = surname;
             this.date = date;
+            this.picPath = picPath;
             this.number = number;
         }
         protected Task(Parcel in) {
@@ -88,6 +76,7 @@ public class TaskListContent {
             name = in.readString();
             surname = in.readString();
             date = in.readString();
+            picPath = in.readString();
             number = in.readString();
         }
         public static final Creator<Task> CREATOR = new Creator<Task>() {
@@ -120,6 +109,7 @@ public class TaskListContent {
             dest.writeString(name);
             dest.writeString(surname);
             dest.writeString(date);
+            dest.writeString(picPath);
             dest.writeString(number);
         }
     }

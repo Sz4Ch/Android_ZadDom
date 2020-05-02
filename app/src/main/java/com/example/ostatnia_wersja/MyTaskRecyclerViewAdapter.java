@@ -17,10 +17,7 @@ import com.example.ostatnia_wersja.tasks.TaskListContent;
 import java.util.List;
 import java.util.Random;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link Task}.
- * TODO: Replace the implementation with code for your data type.
- */
+
 public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecyclerViewAdapter.ViewHolder> {
 
     private final List<TaskListContent.Task> mValues;
@@ -44,30 +41,40 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
         holder.mItem = task;
         holder.mContentView.setText(task.name);
 
-        //final String picPath = task.picPath;
+        final String picPath = task.picPath;
         Context context = holder.mView.getContext();
-        Drawable taskDrawable;
-        int[] images = {
-                R.drawable.avatar_1,
-                R.drawable.avatar_2,
-                R.drawable.avatar_3,
-                R.drawable.avatar_4,
-                R.drawable.avatar_5,
-                R.drawable.avatar_6,
-                R.drawable.avatar_7,
-                R.drawable.avatar_8,
-                R.drawable.avatar_9,
-                R.drawable.avatar_10,
-                R.drawable.avatar_11,
-                R.drawable.avatar_12,
-                R.drawable.avatar_13,
-                R.drawable.avatar_14,
-                R.drawable.avatar_15,
-                R.drawable.avatar_16
-        };
-        Random rand = new Random();
-        taskDrawable = context.getResources().getDrawable(images[rand.nextInt(images.length)]);
-        holder.mItemImageView.setImageDrawable(taskDrawable);
+        if(picPath !=null && !picPath.isEmpty())
+        {
+            Drawable taskDrawable;
+            switch (picPath){
+                case "1":
+                    taskDrawable = context.getResources().getDrawable(R.drawable.avatar_1);
+                    break;
+                case "2":
+                    taskDrawable = context.getResources().getDrawable(R.drawable.avatar_2);
+                    break;
+                case "3":
+                    taskDrawable = context.getResources().getDrawable(R.drawable.avatar_3);
+                    break;
+                case "4":
+                    taskDrawable = context.getResources().getDrawable(R.drawable.avatar_4);
+                    break;
+                case "5":
+                    taskDrawable = context.getResources().getDrawable(R.drawable.avatar_5);
+                    break;
+                case "6":
+                    taskDrawable = context.getResources().getDrawable(R.drawable.avatar_6);
+                    break;
+                default:
+                    taskDrawable = context.getResources().getDrawable(R.drawable.avatar_7);
+            }
+            holder.mItemImageView.setImageDrawable(taskDrawable);
+
+        }else
+        {
+            holder.mItemImageView.setImageDrawable(context.getResources().getDrawable(R.drawable.avatar_1));
+        }
+
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,18 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ostatnia_wersja.tasks.TaskListContent;
-/**
- * A fragment representing a list of Items.
- */
+
 public class TaskFragment extends Fragment {
 
     private MyTaskRecyclerViewAdapter mRecyclerViewAdapter;
 
     private OnListFragmentInteractionListener mListener;
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
+
     public TaskFragment() {
     }
 
@@ -43,7 +38,6 @@ public class TaskFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_task_list, container, false);
 
-        // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
